@@ -4,7 +4,7 @@ namespace oangia\OAuth;
 
 use oangia\OAuth\Consumer\OAuthConsumer;
 
-class TwitterOAuth {
+class Twitter {
   /* Contains the last HTTP status code returned. */
   public $http_code;
   /* Contains the last API call. */
