@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Core\Auth;
+namespace oangia\OAuth;
 
 class OAuthDataStore {
   function lookup_consumer($consumer_key) {

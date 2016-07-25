@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Core\Auth;
+namespace oangia\OAuth;
 
 class OAuthRequest {
 	private $parameters;

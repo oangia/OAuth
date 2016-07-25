@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Core\Auth\Consumer;
+namespace oangia\OAuth\Consumer;
 
 class OAuthConsumer {
 	public $key;

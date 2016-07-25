@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Core\Auth;
+namespace oangia\OAuth;
 
 /**
  * The PLAINTEXT method does not provide any security protection and SHOULD only be used 

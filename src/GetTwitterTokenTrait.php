@@ -2,6 +2,8 @@
 
 namespace oangia\OAuth;
 
+use Illuminate\Http\Request;
+
 trait GetTwitterTokenTrait { 
 	public function getToken(Request $request)
     {

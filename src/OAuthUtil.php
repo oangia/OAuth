@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Core\Auth;
+namespace oangia\OAuth;
 
 class OAuthUtil {
   public static function urlencode_rfc3986($input) {
