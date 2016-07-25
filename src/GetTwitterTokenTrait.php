@@ -2,7 +2,7 @@
 
 namespace oangia\OAuth;
 
-trait GetTwitterTokenTrait {
+trait GetTwitterTokenTrait { 
 	public function getToken(Request $request)
     {
         if(isset($_REQUEST['oauth_token'])) {
