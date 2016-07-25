@@ -1,0 +1,22 @@
+{
+    "name": "oangia/oauth",
+    "description": "OAuth for api mobile",
+    "type": "php",
+    "license": "oangia",
+    "authors": [
+        {
+            "name": "oangia",
+            "email": "hqnhatdn@gmail.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {
+        "php": ">=5.4.0",
+        "oangia/curl": "dev-master"
+    },
+    "autoload": {
+        "psr-4": {
+            "oangia\\OAuth\\": "src/"
+        }
+    }
+}
