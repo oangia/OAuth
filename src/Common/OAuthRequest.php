@@ -1,6 +1,8 @@
 <?php
 
-namespace oangia\OAuth;
+namespace oangia\OAuth\Common;
+
+use oangia\OAuth\Exception\OAuthException;
 
 class OAuthRequest {
 	private $parameters;

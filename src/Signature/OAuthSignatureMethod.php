@@ -1,6 +1,6 @@
 <?php
 
-namespace oangia\OAuth;
+namespace oangia\OAuth\Signature;
 
 /**
  * A class for implementing a Signature Method

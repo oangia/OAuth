@@ -1,5 +1,5 @@
 <?php
 
-namespace App\Core\Auth\Exception;
+namespace oangia\OAuth\Exception;
 
 class OAuthException extends Exception {}

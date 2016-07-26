@@ -1,6 +1,6 @@
 <?php
 
-namespace oangia\OAuth;
+namespace oangia\OAuth\Common;
 
 class OAuthToken {
 	// access tokens and request tokens

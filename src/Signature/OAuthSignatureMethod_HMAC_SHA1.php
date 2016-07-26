@@ -1,6 +1,8 @@
 <?php
 
-namespace oangia\OAuth;
+namespace oangia\OAuth\Signature;
+
+use oangia\OAuth\Common\OAuthUtil;
 
 /**
  * The HMAC-SHA1 signature method uses the HMAC-SHA1 signature algorithm as defined in [RFC2104] 

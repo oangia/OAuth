@@ -1,6 +1,8 @@
 <?php
 
-namespace oangia\OAuth;
+namespace oangia\OAuth\Signature;
+
+use oangia\OAuth\Common\OAuthUtil;
 
 /**
  * The PLAINTEXT method does not provide any security protection and SHOULD only be used 
