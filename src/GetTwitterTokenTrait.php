@@ -23,7 +23,7 @@ trait GetTwitterTokenTrait {
                     'url'                 => '<a href="' . $twitter_url . '">Link</a>';
                 ]); 
                 exit;
-            }else{
+            } else {
                 die("error connecting to twitter! try again later!");
             }      
         }
