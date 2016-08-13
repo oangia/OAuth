@@ -20,7 +20,7 @@ trait GetTwitterTokenTrait {
                 dd([
                     'oauth_token'         => $request_token['oauth_token'],
                     'oauth_token_secret'  => $request_token['oauth_token_secret'],
-                    'url'                 => '<a href="' . $twitter_url . '">Link</a>';
+                    'url'                 => '<a href="' . $twitter_url . '">Link</a>'
                 ]); 
                 exit;
             } else {
