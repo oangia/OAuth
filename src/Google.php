@@ -10,6 +10,6 @@ class Google {
 	public function getInfo( $access_token ) {
 		$url = 'https://www.googleapis.com/plus/v1/people/me?access_token=' . $access_token;
 
-		return  json_decode( Curl::curl_get_file_contents( $url ) );
+		return  json_decode( $curl->connect( 'GET', $url ) );
 	}
 }
