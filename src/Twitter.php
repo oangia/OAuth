@@ -6,6 +6,7 @@ use oangia\OAuth\Consumer\OAuthConsumer;
 use oangia\OAuth\Signature\OAuthSignatureMethod_HMAC_SHA1;
 use oangia\OAuth\Common\OAuthUtil;
 use oangia\OAuth\Common\OAuthRequest;
+use oangia\OAuth\Exceptions\TokenInvalidException;
 
 class Twitter {
 	/* Contains the last HTTP status code returned. */
@@ -51,13 +52,16 @@ class Twitter {
 	/**
 	 * construct TwitterOAuth object
 	 */
-	function __construct($consumer_key, $consumer_secret, $oauth_token = NULL, $oauth_token_secret = NULL) {
+	function __construct($consumer_key, $consumer_secret, $oauth_token = NULL, $oauth_token_secret = NULL, $oauth_verify = null) {
 		$this->sha1_method = new OAuthSignatureMethod_HMAC_SHA1();
 		$this->consumer = new OAuthConsumer($consumer_key, $consumer_secret);
 		if (!empty($oauth_token) && !empty($oauth_token_secret)) {
 			$this->token = new OAuthConsumer($oauth_token, $oauth_token_secret);
 		} else {
 			$this->token = NULL;
+		}
+		if (!empty($oauth_verify)) {
+			$this->oauth_verify = $oauth_verify;
 		}
 	}
 
@@ -235,5 +239,16 @@ class Twitter {
 			$this->http_header[$key] = $value;
 		}
 		return strlen($header);
+	}
+
+	public function getInfo()
+	{
+		$access_token = $this->getAccessToken($this->oauth_verify);
+        if ($this->http_code != '200') {
+            throw new TokenInvalidException('Access token invalid');
+        }
+        $result = $this->get('account/verify_credentials');
+        $result['email'] = (isset($result['email']) && $result[ 'email' ] != null) ? $result[ 'email' ] : null;
+        return $result;
 	}
 }
