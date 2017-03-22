@@ -5,11 +5,22 @@ namespace oangia\OAuth;
 use oangia\CUrl\CUrl;
 
 class Facebook {
-	public function getGraph( $fields, $access_token ) {
-		$url = 'https://graph.facebook.com/me?fields=' . $fields . '&access_token=' . $access_token;
+    public function getGraph(
+    	$access_token,
+    	$fields = 'id,name,about,email,picture{url}'
+	) {
+        $url = 'https://graph.facebook.com/me?fields=' . $fields . '&access_token=' . $access_token;
+        $curl = new CUrl();
+        $graph = json_decode($curl->connect('GET', $url), true);
 
-		$curl = new CUrl();
+        if (isset($graph->error)) {
+            throw new OAuthAccessTokenInvalidException('Access token invalid');
+        }
 
-		return  json_decode( $curl->connect( 'GET', $url ) );
-	}
+        if (! isset($graph['email'])) {
+        	$graph['email'] = null;
+        }
+
+        return $graph; 
+    }
 }
