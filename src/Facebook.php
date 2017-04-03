@@ -13,15 +13,15 @@ class Facebook {
         $url = 'https://graph.facebook.com/me?fields=' . $fields . '&access_token=' . $access_token;
         $curl = new CUrl();
         $graph = json_decode($curl->connect('GET', $url), true);
+        return $this->parse($graph); 
+    }
 
-        if (isset($graph['error'])) {
+    private function parse($graph)
+    {
+        if (isset($graph['error']) || ! isset($graph['id'])) {
             throw new TokenInvalidException('Access token invalid');
         }
-
-        if (! isset($graph['email'])) {
-        	$graph['email'] = null;
-        }
-
-        return $graph; 
+        $graph['email'] = isset($graph['email'])? :null;
+        return $graph;
     }
 }

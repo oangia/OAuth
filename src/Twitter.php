@@ -248,7 +248,16 @@ class Twitter {
             throw new TokenInvalidException('Access token invalid');
         }
         $result = $this->get('account/verify_credentials');
-        $result['email'] = (isset($result['email']) && $result[ 'email' ] != null) ? $result[ 'email' ] : null;
-        return $result;
+        
+        return $this->parse($result);
+	}
+
+	public function parse($result)
+	{
+		if (! isset($result['id_str'])) {
+            throw new TokenInvalidException('Access token invalid');
+        }
+		$result['email'] = (isset($result['email']) && $result[ 'email' ] != null) ? $result[ 'email' ] : null;
+		return $result;
 	}
 }
