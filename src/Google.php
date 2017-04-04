@@ -19,5 +19,6 @@ class Google {
             throw new TokenInvalidException('Access token invalid');
         }
         $info['email'] = isset($info['emails']) && isset($info['emails'][0]['value']) ? $info['emails'][0]['value'] : null;
+        return $info;
     }
 }
